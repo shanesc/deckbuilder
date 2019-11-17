@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './components/Card';
+import Card from './Card';
 
 const CardList = ({ cards }) => {
   return (
@@ -10,7 +10,7 @@ const CardList = ({ cards }) => {
             <Card 
               key={i} 
               name={card.name} 
-              image_uri={card.normal} 
+              image_uri={card.image_uris.normal} 
             />
           );
         })

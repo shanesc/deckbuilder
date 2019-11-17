@@ -1,11 +1,11 @@
 .card {
-  background-color: white;
+  /* background-color: white; */
+  /* mix-blend-mode: multiply; */
   text-align: center;
   display: inline-block;
-  padding: 1rem;
-  border-radius: 0.5rem;
+  /* padding: .5rem; */
+  border-radius: 11px;
   margin: 0.5rem;
-  border-width: 0.25rem;
   box-shadow: 4px 4px 8px 0px rgba( 0, 0, 0, 0.2 );
 
   -moz-osx-font-smoothing: grayscale; 
@@ -25,4 +25,6 @@
 
 img {
   width: 250px;
+  vertical-align: middle;
+  border-radius: 11px;
 }
