@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CardList from './components/CardList';
-import { data } from './cards.js';
 import SearchBox from './components/SearchBox';
 import './App.css';
 
@@ -9,6 +8,7 @@ class App extends Component {
     super(props);
     this.state = {
       cards: [],
+      userCards: [],
       searchfield: ''
     }
   }
@@ -24,15 +24,25 @@ class App extends Component {
       .then(cardList => {
         this.setState({cards: cardList.data});
       })
-      .then(console.log(this.state.cards));
+      .catch(err => console.log(err, 'error searching for cards'))
     }
+  }
+
+  onCardClick = (cardObj) => {
+    // const state = this.state.userCards.concat(cardObj);
+    // this.setState({userCards: state});
+    this.setState({userCards: [...this.state.userCards, cardObj]});
   }
 
   render () {
     return (
       <div>
-        <SearchBox onButtonClick={this.onButtonSubmit} onSearchChange={this.onSearchChange} />
-        <CardList cards={this.state.cards} />
+        <SearchBox 
+          onButtonClick={this.onButtonSubmit} 
+          onSearchChange={this.onSearchChange} 
+        />
+        <CardList cards={this.state.userCards} />
+        <CardList cards={this.state.cards} onCardClick={this.onCardClick} />
       </div>
     );
   }

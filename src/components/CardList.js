@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-const CardList = ({ cards }) => {
+const CardList = ({ cards, onCardClick }) => {
   return (
     <div>
       {
@@ -9,8 +9,11 @@ const CardList = ({ cards }) => {
           return (
             <Card 
               key={i} 
-              name={card.name} 
-              image_uri={card.image_uris.normal} 
+              // name={card.name} 
+              // image_uri={card.image_uris.normal} 
+              onCardClick={onCardClick}
+              small={true}
+              cardData={card}
             />
           );
         })

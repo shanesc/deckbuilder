@@ -5,7 +5,7 @@ const SearchBox = (props) => {
   return (
     <div className='searchBox'>
       <input type='search' placeholder='search for cards' onBlur={props.onSearchChange} />
-      <input type='button' value='Go!' onClick={props.onButtonClick} />
+      <input type='submit' value='Go!' onClick={props.onButtonClick} />
     </div>
   );
 };
