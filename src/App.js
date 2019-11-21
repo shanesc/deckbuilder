@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
+import Deck from './components/Deck';
 import './App.css';
 
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
     this.state = {
       cards: [],
       userCards: [],
-      searchfield: ''
+      searchfield: '',
+      loading: false
     }
   }
 
@@ -19,6 +21,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     if (this.state.searchfield) {
+      this.setState({loading: true});
       fetch(`https://api.scryfall.com/cards/search?q=${this.state.searchfield}`)
       .then(resp => resp.json())
       .then(cardList => {
@@ -26,6 +29,7 @@ class App extends Component {
       })
       .catch(err => console.log(err, 'error searching for cards'))
     }
+    this.setState({loading: false});
   }
 
   onCardClick = (cardObj) => {
@@ -35,14 +39,27 @@ class App extends Component {
   }
 
   render () {
+    const { cards, userCards, loading } = this.state;
     return (
       <div>
         <SearchBox 
           onButtonClick={this.onButtonSubmit} 
           onSearchChange={this.onSearchChange} 
         />
-        <CardList cards={this.state.userCards} />
-        <CardList cards={this.state.cards} onCardClick={this.onCardClick} />
+        { (loading)
+          ? <h1>....loading....</h1>
+          : <div>
+              <Deck 
+                cards={userCards} 
+                onCardClick={this.onCardClick} 
+                cardSmall={true}
+              />
+              <CardList 
+                cards={cards} 
+                onCardClick={this.onCardClick} 
+              />
+            </div>
+        }   
       </div>
     );
   }
