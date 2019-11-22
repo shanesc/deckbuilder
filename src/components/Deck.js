@@ -15,7 +15,7 @@ const Deck = ({ cards, onCardClick, cardSmall }) => {
         cards.map((card, i) => {
           return (
             <Card 
-              key={i} 
+              key={card.id} 
               // name={card.name} 
               // image_uri={card.image_uris.normal} 
               onCardClick={onCardClick}
