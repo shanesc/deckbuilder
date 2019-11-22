@@ -11,7 +11,7 @@ class App extends Component {
       cards: [],
       userCards: [],
       searchfield: '',
-      // loading: false
+      loading: false
     }
   }
 
@@ -22,15 +22,14 @@ class App extends Component {
   onButtonSubmit = () => {
     if (this.state.searchfield) {
       this.setState({loading: true});
-      fetch(`https://api.scryfall.com/cards/search?q=land`)
+      fetch(`https://api.scryfall.com/cards/search?q=${this.state.searchfield}`)
       .then(resp => resp.json())
       .then(cardList => {
         this.setState({cards: cardList.data});
-        console.log(this.state.cards);
       })
       .catch(err => console.log(err, 'error searching for cards'))
     }
-    // this.setState({loading: false});
+    this.setState({loading: false});
   }
 
   onCardClick = (cardObj) => {
@@ -47,21 +46,21 @@ class App extends Component {
           onButtonClick={this.onButtonSubmit} 
           onSearchChange={this.onSearchChange} 
         />
-        {/* { (loading)
+        { (loading)
           ? <h1>....loading....</h1>
-          :  */}
+          : 
           <div>
-              <Deck 
-                cards={userCards} 
-                onCardClick={this.onCardClick} 
-                cardSmall={true}
-              />
-              <CardList 
-                cards={cards} 
-                onCardClick={this.onCardClick} 
-              />
-            </div>
-        
+            <Deck 
+              cards={userCards} 
+              onCardClick={this.onCardClick} 
+              cardSmall={true}
+            />
+            <CardList 
+              cards={cards} 
+              onCardClick={this.onCardClick} 
+            />
+          </div>
+        }
       </div>
     );
   }
