@@ -26,10 +26,11 @@ class App extends Component {
       .then(resp => resp.json())
       .then(cardList => {
         this.setState({cards: cardList.data});
+        this.setState({loading: false});
       })
       .catch(err => console.log(err, 'error searching for cards'))
     }
-    this.setState({loading: false});
+    
   }
 
   onCardClick = (cardObj) => {
@@ -46,7 +47,7 @@ class App extends Component {
           onButtonClick={this.onButtonSubmit} 
           onSearchChange={this.onSearchChange} 
         />
-        { (loading)
+        { (loading === true)
           ? <h1>....loading....</h1>
           : 
           <div>
