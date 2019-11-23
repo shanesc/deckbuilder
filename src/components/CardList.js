@@ -8,7 +8,7 @@ const CardList = ({ cards, onCardClick, cardSmall }) => {
         cards.map((card, i) => {
           return (
             <Card 
-              key={i} 
+              key={card.id} 
               onCardClick={onCardClick}
               small={cardSmall}
               cardData={card}
