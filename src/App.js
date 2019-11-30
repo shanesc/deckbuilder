@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
 import Deck from './components/Deck';
+import Navigation from './components/Navigation';
 import './App.css';
 
 class App extends Component {
@@ -43,6 +44,7 @@ class App extends Component {
     const { cards, userCards, loading } = this.state;
     return (
       <div>
+        <Navigation />
         <SearchBox 
           onButtonClick={this.onButtonSubmit} 
           onSearchChange={this.onSearchChange} 

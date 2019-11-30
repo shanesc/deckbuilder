@@ -6,8 +6,8 @@ const Deck = ({ cards, onCardClick, cardSmall }) => {
     <div>
       {(cards.length)
         ? (cards.length === 1)
-          ? <h1>{cards.length} card in your deck</h1>
-          : <h1>{cards.length} cards in your deck</h1>
+          ? <h3>{cards.length} card in your deck</h3>
+          : <h3>{cards.length} cards in your deck</h3>
         : <div></div>
       }
       

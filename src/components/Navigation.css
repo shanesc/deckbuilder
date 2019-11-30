@@ -1,0 +1,26 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-title {
+  color: blue;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 0 0.5rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
