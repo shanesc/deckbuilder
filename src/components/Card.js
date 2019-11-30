@@ -16,7 +16,7 @@ const Card = (props) => {
       className='card'
       onClick={() => props.onCardClick(props.cardData)}
     >
-      <img className={(props.small) ? 'smallCard' : ''} 
+      <img className={(props.small) ? 'smallCard' : 'largeCard'} 
       alt={name} src={image_uri} 
       />
     </div>

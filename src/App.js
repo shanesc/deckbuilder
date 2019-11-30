@@ -12,7 +12,8 @@ class App extends Component {
       cards: [],
       userCards: [],
       searchfield: '',
-      loading: false
+      loading: false,
+      route: 'home'
     }
   }
 
@@ -31,7 +32,6 @@ class App extends Component {
       })
       .catch(err => console.log(err, 'error searching for cards'))
     }
-    
   }
 
   onCardClick = (cardObj) => {
@@ -40,29 +40,35 @@ class App extends Component {
     this.setState({userCards: [...this.state.userCards, cardObj]});
   }
 
+  onRouteChange = (route) => {
+    this.setState({route: route});
+  }
+
   render () {
-    const { cards, userCards, loading } = this.state;
+    const { cards, userCards, route } = this.state;
     return (
       <div className='app'>
-        <Navigation />
-        <SearchBox 
-          onButtonClick={this.onButtonSubmit} 
-          onSearchChange={this.onSearchChange} 
-        />
-        { (loading === true)
-          ? <h1>....loading....</h1>
-          : 
-          <div>
-            <Deck 
-              cards={userCards} 
-              onCardClick={this.onCardClick} 
-              cardSmall={true}
-            />
-            <CardList 
-              cards={cards} 
-              onCardClick={this.onCardClick} 
-            />
-          </div>
+        <Navigation onRouteChange={this.onRouteChange} />
+        { (route === 'home')
+          ?
+            <div>
+              <SearchBox 
+                onButtonClick={this.onButtonSubmit} 
+                onSearchChange={this.onSearchChange} 
+              />
+              <CardList 
+                cards={cards} 
+                onCardClick={this.onCardClick} 
+              />
+            </div>
+          :
+            <div>
+              <Deck 
+                cards={userCards} 
+                onCardClick={this.onCardClick} 
+                cardSmall={true}
+              />
+            </div>
         }
       </div>
     );
