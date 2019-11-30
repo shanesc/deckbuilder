@@ -2,6 +2,35 @@ import React from 'react';
 import Card from './Card';
 
 const Deck = ({ cards, onCardClick, cardSmall }) => {
+  const manaSpread = {
+    white: 0,
+    red: 0,
+    blue: 0,
+    green: 0,
+    black: 0
+  }
+
+  cards.map(card => {
+    const manaCost = card.mana_cost;
+    if (manaCost.includes('{W}')) {
+      manaSpread.white++;
+    }
+    if (manaCost.includes('{R}')) {
+      manaSpread.red++;
+    }
+    if (manaCost.includes('{U}')) {
+      manaSpread.blue++;
+    }
+    if (manaCost.includes('{G}')) {
+      manaSpread.green++;
+    }
+    if (manaCost.includes('{B}')) {
+      manaSpread.black++;
+    }
+  });
+
+  console.log(manaSpread);
+  
   return (
     <div>
       {(cards.length)
