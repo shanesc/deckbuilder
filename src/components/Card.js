@@ -4,12 +4,11 @@ import './Card.css';
 const Card = (props) => {
   const name = props.cardData.name;
   let image_uri;
-  if (props.cardData.card_faces) {
-    image_uri = props.cardData.card_faces[0].image_uris.normal;
-  } else {
+  if (props.cardData.image_uris !== undefined) {
     image_uri = props.cardData.image_uris.normal;
+  } else if (props.cardData.card_faces) {
+    image_uri = props.cardData.card_faces[0].image_uris.normal;
   }
-  
 
   return (
     <div 

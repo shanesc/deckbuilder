@@ -7,11 +7,6 @@
   border-radius: 3px;
 }
 
-.nav-title {
-  color: rgb(221, 217, 217);
-  margin: 0 0 0 1rem;
-}
-
 .nav-links {
   list-style: none;
 }
@@ -20,7 +15,8 @@
   display: block;
   padding: 0 0.5rem;
   text-decoration: none;
-  color: black;
+  color: rgb(53, 52, 51);
+  font-weight: 700;
   /* font-weight: bold; */
 }
 
@@ -28,4 +24,5 @@
   height: 50px;
   width: auto;
   border-radius: 6px;
+  margin: 0 0 0 1rem;
 }
