@@ -3,7 +3,7 @@ import './Navigation.css';
 
 const Navigation = () => {
   return (
-    <div className='nav'>
+    <div className='nav center'>
       <div className='nav-title center'>
         <h2>DeckBuilder</h2>
       </div>

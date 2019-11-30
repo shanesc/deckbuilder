@@ -3,7 +3,7 @@ import './SearchBox.css';
 
 const SearchBox = (props) => {
   return (
-    <div className='searchBox'>
+    <div className='searchBox center'>
       <input type='search' placeholder='search for cards' onBlur={props.onSearchChange} />
       <input type='submit' value='Go!' onClick={props.onButtonClick} />
     </div>

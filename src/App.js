@@ -43,7 +43,7 @@ class App extends Component {
   render () {
     const { cards, userCards, loading } = this.state;
     return (
-      <div>
+      <div className='app'>
         <Navigation />
         <SearchBox 
           onButtonClick={this.onButtonSubmit} 

@@ -1,10 +1,15 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  padding: 0.25rem 0;
+  margin: 0 0 1rem 0;
+  background-color: lightgrey;
+  border-radius: 3px;
 }
 
 .nav-title {
-  color: blue;
+  color: rgb(41, 40, 40);
+  margin: 0 0 0 1rem;
 }
 
 .nav-links {
@@ -17,10 +22,4 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
-}
-
-.center {
-  display: flex;
-  align-items: center;
-  text-align: center;
 }
